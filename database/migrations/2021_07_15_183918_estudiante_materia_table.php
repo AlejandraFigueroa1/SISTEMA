@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Registrar extends Migration
+class EstudianteMateriaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,21 @@ class Registrar extends Migration
      */
     public function up()
     {
-        Schema::create('registrar', function (Blueprint $table) {
+        Schema::create('estudiante_materia_table', function (Blueprint $table) {
             $table->id();
 
-            $table->integer('estudiante_id');
-            $table->integer('materia_id');
+            $table->foreignId('estudiante_id')->constraint();
+            $table->foreignId('materia_id')->constraint();
 
-            $table->foreign('estudiante_id')->references('id')->on('estudiante');
-            $table->foreign('materia_id')->references('id')->on('materia');
+
+
+
+
 
 
             $table->timestamps();
         });
+
     }
 
     /**
@@ -32,6 +35,9 @@ class Registrar extends Migration
      *
      * @return void
      */
+
+
+
     public function down()
     {
         //

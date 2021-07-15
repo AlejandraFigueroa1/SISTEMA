@@ -17,13 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('estudiante', App\Http\Controllers\EstudianteController::class)->middleware('auth');
-Route::resource('materia', App\Http\Controllers\MateriaController::class)->middleware('auth');
 
 Route::get('alumnos', function () {
     return view('estudiante.create');
 });
 
-Auth::routes();
+//Auth::routes();
+
+Route::resource('estudiante', App\Http\Controllers\EstudianteController::class);
+Route::resource('materia', App\Http\Controllers\MateriumController::class);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
